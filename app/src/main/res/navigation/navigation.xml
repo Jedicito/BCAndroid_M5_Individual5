@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/fragmentLista">
+
+    <fragment
+        android:id="@+id/fragmentLista"
+        android:name="chl.ancud.m5_individual5.FragmentLista"
+        android:label="fragment_lista"
+        tools:layout="@layout/fragment_lista" >
+        <action
+            android:id="@+id/action_fragmentLista_to_fragmentPalabra"
+            app:destination="@id/fragmentPalabra" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentPalabra"
+        android:name="chl.ancud.m5_individual5.FragmentPalabra"
+        android:label="fragment_palabra"
+        tools:layout="@layout/fragment_palabra" >
+        <action
+            android:id="@+id/action_fragmentPalabra_to_fragmentLista"
+            app:destination="@id/fragmentLista" />
+    </fragment>
+</navigation>
