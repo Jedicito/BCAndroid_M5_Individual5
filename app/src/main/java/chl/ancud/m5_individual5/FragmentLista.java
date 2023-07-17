@@ -8,6 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import chl.ancud.m5_individual5.databinding.FragmentListaBinding;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link FragmentLista#newInstance} factory method to
@@ -37,6 +42,10 @@ public class FragmentLista extends Fragment {
      * @return A new instance of fragment FragmentList.
      */
     // TODO: Rename and change types and number of parameters
+
+    FragmentListaBinding binding;
+
+
     public static FragmentLista newInstance(String param1, String param2) {
         FragmentLista fragment = new FragmentLista();
         Bundle args = new Bundle();
@@ -59,6 +68,21 @@ public class FragmentLista extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lista, container, false);
+        binding = FragmentListaBinding.inflate(getActivity().getLayoutInflater());
+        AdapterPalabras adapter = new AdapterPalabras();
+        adapter.setData(getData());
+        binding.reciclador.setAdapter(adapter);
+        return binding.getRoot();
+    }
+
+    public ArrayList<String> getData() {
+        ArrayList<String> data = new ArrayList<>();
+        data.add("Hola");
+        data.add("Chao");
+        for (int i=0; i<20; i++) {
+            data.add("palabra " + i);
+        }
+
+        return data;
     }
 }
